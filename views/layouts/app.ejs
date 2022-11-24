@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User</title>
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css"/>
+    <link rel="stylesheet" href="/assets/css/style.css">
+</head>
+<body>
+    
+
+   
+    <%- body %> 
+
+
+
+    <script>
+
+
+        if( document.getElementById('profile_photo_upload') ){
+
+            // ProfilePhoto Preview.
+            const profile_photo_upload = document.getElementById('profile_photo_upload');
+            const profile_photo_preview = document.getElementById('profile_photo_preview');
+
+            profile_photo_upload.onchange = (e) => {
+                
+                // Create URL.
+                const url = URL.createObjectURL(e.target.files[0]);
+
+                // Send Photo.
+                profile_photo_preview.setAttribute('src', url);
+
+            };
+
+        }
+
+        if( document.getElementById('gallery_photo_upload')){
+
+            const gallery_photo_upload = document.getElementById('gallery_photo_upload');
+
+            gallery_photo_upload.onchange = (e) => {
+
+                // Get all files.
+                const files = e.target.files;
+
+                let images = '';
+                for( let i = 0; i < files.length; i++ ){
+
+                    // Create URL.
+                    const url = URL.createObjectURL(files[i]);
+                    images += `
+                    <img id="profile_photo_preview" src="${url}" alt="">
+                    `
+                }
+                document.querySelector('.gallery_photo').innerHTML = images;
+            };
+        };
+
+    </script>
+</body>
+</html>

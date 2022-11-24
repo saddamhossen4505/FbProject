@@ -1,0 +1,10 @@
+
+<div class="user info">
+    <% if ( user.photo ) { %>
+        <img style="border-radius: 50%; padding: 5px; border: 2px solid rgb(232, 100, 208); object-fit: cover;" src="/images/userPhoto/<%= user.photo %> " alt="">
+        <% } else { %>
+        <img src="/assets/images/avatar.png" alt="">
+    <% } %>
+    <h3><%= user.name %> </h3>
+    <p class="userInfoEmail"><%= user.email %> </p>
+</div>

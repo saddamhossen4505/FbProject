@@ -1,0 +1,53 @@
+
+
+
+<div class="profile-body">
+
+    <div class="profile-wraper">
+        <div class="profile-info">
+            
+            <%- include ("layouts/userInfo.ejs") %>
+
+            <hr>
+
+            <%- include ("layouts/menu.ejs") %> 
+
+        </div>
+        <div class="profile-box"> 
+            <div class="profile-details">
+                <% if (message) { %>
+                    <p><%= message %> </p>
+                <% } %>
+                <br>
+                <br>
+                <br>
+                <div class="profile-photo">
+                    <% if ( singleFriendProfile.photo ) { %>
+                        <img id="profile_photo_preview" src="/images/userPhoto/<%= singleFriendProfile.photo %> " alt="">
+                    <% } else { %>
+                        <img id="profile_photo_preview" src="/assets/images/avatar.png" alt="">
+                    <% } %>
+                    <div class="user_Info">
+                        <h2><%= singleFriendProfile.name %> </h2>
+                        <p><%= singleFriendProfile.email %> </p>
+                        <p class="foll_ow">2K follower. 1k following </p>
+                    </div>
+                </div>
+            </div>
+            <hr>
+            <h3>Gallery-Photo</h3>
+            <div class="user_gallery">
+                <div class="gallery_area">
+
+                    <% singleFriendProfile.gallery.forEach(element => { %>
+                        <div class="gallery_items">
+                            <img src="/images/galleryPhoto/<%= element %> " alt="">
+                        </div>
+                    <% }) %>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
